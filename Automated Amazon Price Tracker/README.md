@@ -4,13 +4,6 @@
 # 🛒 Price Tracker
 
 A simple yet effective Streamlit-based web application that helps you track the **current price** of products using their URL. Supports dynamic scraping from sites like Amazon and provides insights on **discounts** by comparing the listed price with the MRP.
-
----
-
-## 🎥 Live Demo
-
-![Demo](My_project.gif)
-
 ---
 
 ## 🚀 Features
