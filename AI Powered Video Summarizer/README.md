@@ -1,4 +1,4 @@
-### ✅ `youtube-summarizer/README.md`
+### ✅ AI Powered Youtube Video summarizer
 
 ```markdown
 # 🎥 YouTube Transcript Summarizer
@@ -11,25 +11,26 @@ This project is part of my [Web API Automation](https://github.com/Madhavi1108/W
 
 ## 🚀 Project Timeline & Tasks
 
-| Day | Task |
-|-----|------|
-| 1 | Extract Video ID from YouTube URL |
-| 2 | Fetch YouTube Transcript using `youtube-transcript-api` |
-| 3 | Clean & Prepare Transcript |
-| 4 | Use OpenAI API to Summarize |
-| 5 | Build Streamlit UI |
-| 6 | Enhance UI & Add Features |
-| 7 | Finalize Code & Upload to GitHub |
+| Day | Task                                                   | Status |
+|-----|--------------------------------------------------------|--------|
+| 1   | Extract Video ID from YouTube URL                      | ✅ Done |
+| 2   | Fetch YouTube Transcript using `youtube-transcript-api`| ✅ Done |
+| 3   | Clean & Prepare Transcript                             | 🔜 Upcoming |
+| 4   | Use OpenAI API to Summarize                            | 🔜 |
+| 5   | Build Streamlit UI                                     | 🔜 |
+| 6   | Enhance UI & Add Features                              | 🔜 |
+| 7   | Finalize Code & Upload to GitHub                       | 🔜 |
 
 ---
 
 ## 💡 Features (Planned)
 
 - Input any YouTube URL  
-- Automatically extract video transcript  
-- Summarize long transcripts into short readable summaries  
+- Automatically extract and clean the transcript  
+- Summarize long transcripts using OpenAI  
 - User-friendly Streamlit web interface  
-- Support for videos with multiple languages (future)  
+- Error handling for missing/disabled transcripts  
+- Support for multilingual transcripts (optional)
 
 ---
 
@@ -37,7 +38,7 @@ This project is part of my [Web API Automation](https://github.com/Madhavi1108/W
 
 - Python 3.x
 - youtube-transcript-api
-- OpenAI API
+- OpenAI API (upcoming)
 - Streamlit
 - Regular Expressions (`re`)
 - urllib for URL parsing
@@ -62,7 +63,7 @@ youtube-summarizer/
 
 ## ✅ How to Run
 
-1. Clone this repo
+1. Clone the repo
 ```bash
 git clone https://github.com/Madhavi1108/Web_API_Automation.git
 cd Web_API_Automation/youtube-summarizer
@@ -78,13 +79,18 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 3. Install dependencies
 
 ```bash
-pip install -r requirements.txt
+pip install youtube-transcript-api
 ```
 
-4. Run the Streamlit app (after Day 5)
+4. Run current test (example from Day 2)
 
-```bash
-streamlit run app_streamlit.py
+```python
+from youtube_transcript_api import YouTubeTranscriptApi
+
+yta = YouTubeTranscriptApi()
+transcript = yta.fetch("dQw4w9WgXcQ")  # replace with your video ID
+for line in transcript:
+    print(line)
 ```
 
 ---
@@ -92,12 +98,12 @@ streamlit run app_streamlit.py
 ## 🎯 Progress
 
 * [x] Day 1 - Extract Video ID ✅
-* [ ] Day 2 - Fetch Transcript
+* [x] Day 2 - Fetch Transcript ✅
 * [ ] Day 3 - Clean Transcript
 * [ ] Day 4 - OpenAI Summary
-* [ ] Day 5 - Build Streamlit UI
-* [ ] Day 6 - Enhance Features
-* [ ] Day 7 - Finalize and Push
+* [ ] Day 5 - Streamlit UI
+* [ ] Day 6 - UI Enhancement
+* [ ] Day 7 - Final Touches + GitHub
 
 ---
 
@@ -112,4 +118,4 @@ Feel free to fork or contribute under the MIT License.
 
 * [Madhavi1108](https://github.com/Madhavi1108)
 
-
+````
