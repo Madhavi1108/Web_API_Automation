@@ -14,8 +14,20 @@ if match:
         yta = YouTubeTranscriptApi()
         transcript = yta.fetch(video_id)
 
-        for line in transcript:
-            print(line)
+        # Join all text
+        full_text = " ".join([line.text for line in transcript])
+
+        # Remove brackets like [Silly Dog: Mm.] or (Laughs)
+        cleaned_text = re.sub(r"[\[\(].*?[\]\)]", "", full_text)
+
+        # Remove musical notes
+        cleaned_text = re.sub(r"[♪♫]", "", cleaned_text)
+
+        # Remove multiple spaces
+        cleaned_text = re.sub(r"\s{2,}", " ", cleaned_text)
+
+        print("\n--- Cleaned Transcript ---\n")
+        print(cleaned_text)  # Preview
 
     except TranscriptsDisabled:
         print("❌ Transcripts are disabled for this video.")

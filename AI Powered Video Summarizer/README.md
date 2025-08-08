@@ -1,6 +1,3 @@
-### ✅ AI Powered Youtube Video summarizer
-
-```markdown
 # 🎥 YouTube Transcript Summarizer
 
 A Python-based automation project to extract transcripts from YouTube videos and summarize them using OpenAI’s language models. Built with a clean modular design and an interactive Streamlit UI.
@@ -11,26 +8,15 @@ This project is part of my [Web API Automation](https://github.com/Madhavi1108/W
 
 ## 🚀 Project Timeline & Tasks
 
-| Day | Task                                                   | Status |
-|-----|--------------------------------------------------------|--------|
-| 1   | Extract Video ID from YouTube URL                      | ✅ Done |
-| 2   | Fetch YouTube Transcript using `youtube-transcript-api`| ✅ Done |
-| 3   | Clean & Prepare Transcript                             | 🔜 Upcoming |
-| 4   | Use OpenAI API to Summarize                            | 🔜 |
-| 5   | Build Streamlit UI                                     | 🔜 |
-| 6   | Enhance UI & Add Features                              | 🔜 |
-| 7   | Finalize Code & Upload to GitHub                       | 🔜 |
-
----
-
-## 💡 Features (Planned)
-
-- Input any YouTube URL  
-- Automatically extract and clean the transcript  
-- Summarize long transcripts using OpenAI  
-- User-friendly Streamlit web interface  
-- Error handling for missing/disabled transcripts  
-- Support for multilingual transcripts (optional)
+| Day | Task                                                   | Status     |
+|-----|--------------------------------------------------------|------------|
+| 1   | Extract Video ID from YouTube URL                      | ✅ Done     |
+| 2   | Fetch YouTube Transcript using `youtube-transcript-api`| ✅ Done     |
+| 3   | Clean & Prepare Transcript                             | ✅ Done     |
+| 4   | Use OpenAI API to Summarize                            | 🔜 Upcoming |
+| 5   | Build Streamlit UI                                     | 🔜          |
+| 6   | Enhance UI & Add Features                              | 🔜          |
+| 7   | Finalize Code & Upload to GitHub                       | 🔜          |
 
 ---
 
@@ -38,7 +24,7 @@ This project is part of my [Web API Automation](https://github.com/Madhavi1108/W
 
 - Python 3.x
 - youtube-transcript-api
-- OpenAI API (upcoming)
+- OpenAI API (coming in Day 4)
 - Streamlit
 - Regular Expressions (`re`)
 - urllib for URL parsing
@@ -61,36 +47,42 @@ youtube-summarizer/
 
 ---
 
-## ✅ How to Run
+## 🧼 Day 3 - Transcript Cleaning Details
 
-1. Clone the repo
-```bash
-git clone https://github.com/Madhavi1108/Web_API_Automation.git
-cd Web_API_Automation/youtube-summarizer
-````
-
-2. Create a virtual environment
-
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. Install dependencies
-
-```bash
-pip install youtube-transcript-api
-```
-
-4. Run current test (example from Day 2)
+Once the transcript is fetched, it contains entries like:
 
 ```python
-from youtube_transcript_api import YouTubeTranscriptApi
+FetchedTranscriptSnippet(text="Hello!", start=0.0, duration=1.3)
+````
 
-yta = YouTubeTranscriptApi()
-transcript = yta.fetch("dQw4w9WgXcQ")  # replace with your video ID
-for line in transcript:
-    print(line)
+This script:
+
+* Extracts only the `text` from each line
+* Joins all lines into a single paragraph
+* Cleans the text using regex to remove:
+
+  * Musical notes like `♪` or `♫`
+  * Bracketed expressions like `[Silly Dog: Mm.]` or `(Laughs)`
+  * Extra whitespace
+
+### 📄 Sample Cleaned Output:
+
+```
+A beautiful place full of smiles Where imaginations about you grow wildly The winter sun is like your white teeth ...
+```
+
+This cleaned text is now ready to be summarized using the OpenAI API (Day 4).
+
+---
+
+## ✅ How to Run This Step
+
+```python
+# Sample Code Snippet
+full_text = " ".join([line.text for line in transcript])
+cleaned_text = re.sub(r"[\[\(].*?[\]\)]", "", full_text)
+cleaned_text = re.sub(r"[♪♫]", "", cleaned_text)
+cleaned_text = re.sub(r"\s{2,}", " ", cleaned_text)
 ```
 
 ---
@@ -99,7 +91,7 @@ for line in transcript:
 
 * [x] Day 1 - Extract Video ID ✅
 * [x] Day 2 - Fetch Transcript ✅
-* [ ] Day 3 - Clean Transcript
+* [x] Day 3 - Clean Transcript ✅
 * [ ] Day 4 - OpenAI Summary
 * [ ] Day 5 - Streamlit UI
 * [ ] Day 6 - UI Enhancement
@@ -118,4 +110,3 @@ Feel free to fork or contribute under the MIT License.
 
 * [Madhavi1108](https://github.com/Madhavi1108)
 
-````
