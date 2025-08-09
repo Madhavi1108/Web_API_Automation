@@ -1,0 +1,120 @@
+# 📽️ YouTube Transcript Summarizer with Gemini AI
+
+**Day 3 – AI Project**
+
+## 📌 Overview
+
+This project automatically **fetches**, **cleans**, and **summarizes** the transcript of any YouTube video using:
+
+* [`youtube-transcript-api`](https://pypi.org/project/youtube-transcript-api/) to get video transcripts
+* **Google Gemini 2.5 Pro** for AI-powered summarization
+
+You simply provide a YouTube link, and the script will:
+
+1. Extract the video ID.
+2. Fetch the transcript (if available).
+3. Clean unwanted symbols, timestamps, and notes.
+4. Summarize the content into **concise bullet points**.
+
+---
+
+## 🚀 Features
+
+* ✅ **Automatic Video ID Extraction** from any YouTube link
+* ✅ **Transcript Fetching** (if enabled for the video)
+* ✅ **Text Cleaning** (removes timestamps, notes, and music symbols)
+* ✅ **AI Summarization** using Google Gemini 2.5 Pro
+* ✅ **Clear Output** in console with both transcript preview and summary
+
+---
+
+## 🛠️ Installation
+
+### 1️⃣ Clone or Create a New Project
+
+```bash
+mkdir youtube_summarizer
+cd youtube_summarizer
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+pip install youtube-transcript-api google-generativeai
+```
+
+### 3️⃣ Get a Gemini API Key
+
+1. Go to [Google AI Studio](https://aistudio.google.com/)
+2. Sign in with your Google account
+3. Click **Get API Key** → Create a key under a project
+4. Copy the key
+
+---
+
+## ⚙️ Configuration
+
+In `main.py`, replace:
+
+```python
+GEMINI_API_KEY = "YOUR_API_KEY_HERE"
+```
+
+with your actual API key.
+
+Also set your YouTube URL:
+
+```python
+YOUTUBE_URL = "https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+```
+
+---
+
+## ▶️ Usage
+
+Run the script:
+
+```bash
+python main.py
+```
+
+### Example Output:
+
+```
+Video ID: _8DPM_kqKbI
+
+--- Cleaned Transcript ---
+This is a clean version of the transcript without notes or timestamps...
+
+--- Gemini Summary ---
+• Point 1...
+• Point 2...
+• Point 3...
+```
+
+---
+
+## 📂 File Structure
+
+```
+📁 youtube_summarizer
+ ├── main.py        # Main script
+ ├── requirements.txt # Dependencies (optional)
+ └── README.md      # Project documentation
+```
+
+---
+
+## ⚠️ Notes & Limitations
+
+* Some videos **do not have transcripts** (private, live streams, or disabled captions).
+* The **free Gemini API key** has usage limits.
+* Keep your API key **private** and never commit it to public GitHub repositories.
+
+---
+
+## 📜 License
+
+This project is for **educational purposes only**.
+
+---
