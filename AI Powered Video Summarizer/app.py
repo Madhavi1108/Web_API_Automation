@@ -5,7 +5,7 @@ from youtube_transcript_api._errors import TranscriptsDisabled, NoTranscriptFoun
 import google.generativeai as genai
 
 # ==== CONFIGURE YOUR GEMINI API KEY HERE ====
-API_KEY = "AIzaSyDHUWc3Xp9-llca9m6hrzYFmZH6h-2NvAc"
+API_KEY = ""
 
 st.title("🎥 YouTube Transcript Summarizer")
 url = st.text_input("Enter YouTube URL:")
