@@ -11,7 +11,7 @@ This repository demonstrates practical usage of:
 
 ---
 
-## 📂 Project Structure
+## 📂 Project Structure 
 
 ```
 Web_API_Automation/
